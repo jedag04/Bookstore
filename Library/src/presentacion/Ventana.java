@@ -18,8 +18,8 @@ public class Ventana extends JFrame{
 
 	public Ventana(Controlador controlador) {
 		
-		setSize(800, 500); //Constantes
-		setTitle("Software Libreria"); //Constantes
+		setSize(ConstantesGUI.VENTANA_ANCHO, ConstantesGUI.VENTANA_ALTO);
+		setTitle(ConstantesGUI.T_TITULO_VENTANA);
 		setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
