@@ -13,7 +13,6 @@ public class Ventana extends JFrame{
 	private BarraMenu barraMenu;
 	private BarraHerramientas barraHerramientas;
 	private JPanel panelPrincipal;
-	private Controlador controlador;
 	
 
 	public Ventana(Controlador controlador) {
@@ -34,9 +33,5 @@ public class Ventana extends JFrame{
 		add(panelPrincipal);
 	}
 	
-	public static void main(String[] args) {
-		Ventana v =  new Ventana(null);
-		v.setVisible(true);
-	}
 
 }

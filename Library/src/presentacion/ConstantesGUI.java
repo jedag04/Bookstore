@@ -11,7 +11,7 @@ public class ConstantesGUI {
 	public static final String T_TITULO_VENTANA = "Software Libreria";
 	
 	/**
-	 * Constantes Jmenu
+	 * Constantes barra menu
 	 */
 	
 	public static final String T_MENU_ARCHIVO = "Archivo";
@@ -20,5 +20,20 @@ public class ConstantesGUI {
 	public static final String T_MENU_ITEM_SALIR = "Salir";
 	public static final String T_MENU_AYUDA = "Ayuda";
 	public static final String T_MENU_ITEM_ACERCA_DE = "Acerca de";
+	
+	/**
+	 * Constantes barra de herramientas administrador
+	 */
+	
+	public static final String T_BTN_AGREGAR_LIBRO = "Agregar libro";
 
+	/**
+	 * Constates dialogo administrador
+	 */
+	
+	
+	/**
+	 * Constantes dialogo agregar libro
+	 */
+	
 }
