@@ -2,6 +2,7 @@ package presentacion;
 
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -25,6 +26,7 @@ public class DialogoAgregarUsuario extends JDialog{
 		super(ventana);
 		setModal(true);
 		setSize(ConstantesGUI.VENTANA_ADD_USER_ANCHO, ConstantesGUI.VENTANA_ADD_USER_ALTO);
+		setIconImage(createImageIcon(ConstantesGUI.I_ICONO_AGREGAR_USUARIO).getImage());
 		setTitle(ConstantesGUI.T_BTN_AGREGAR_USUARIO);
 		setLocationRelativeTo(null);
 		
@@ -46,5 +48,14 @@ public class DialogoAgregarUsuario extends JDialog{
 		
 		add(pnlCrear);
 	}
-
+	
+	protected ImageIcon createImageIcon(String path) {
+		java.net.URL imgURL = getClass().getResource(path);
+		if (imgURL != null) {
+			return new ImageIcon(imgURL);
+		} else {
+			System.err.println("Couldn't find file" + path);
+			return null;
+		}
+	}
 }

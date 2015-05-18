@@ -3,6 +3,7 @@ package presentacion;
 import java.awt.BorderLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -31,6 +32,7 @@ public class Ventana extends JFrame{
 		setTitle(ConstantesGUI.T_TITULO_VENTANA);
 		setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
+		setIconImage(createImageIcon(ConstantesGUI.I_ICONO_LOGO).getImage());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		barraMenu = new BarraMenu(controlador);
@@ -74,5 +76,15 @@ public class Ventana extends JFrame{
 		modeloLibros = new DefaultTableModel(new String[]{ConstantesGUI.T_LB_ID, ConstantesGUI.T_LB_NOMBRE},0);
 		tablaLibros = new JTable(modeloLibros);
 		panelAutor.add(new JScrollPane(tablaLibros));
+	}
+	
+	protected ImageIcon createImageIcon(String path) {
+		java.net.URL imgURL = getClass().getResource(path);
+		if (imgURL != null) {
+			return new ImageIcon(imgURL);
+		} else {
+			System.err.println("Couldn't find file" + path);
+			return null;
+		}
 	}
 }

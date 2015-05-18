@@ -2,6 +2,7 @@ package presentacion;
 
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ public class DialogoAgregarAutor extends JDialog{
 		setModal(true);
 		setSize(ConstantesGUI.VENTANA_ADD_AUTOR_ANCHO, ConstantesGUI.VENTANA_ADD_AUTOR_ALTO);
 		setTitle(ConstantesGUI.T_BTN_AGREGAR_AUTOR);
+		setIconImage(createImageIcon(ConstantesGUI.I_ICONO_AGREGAR_AUTOR).getImage());
 		setLocationRelativeTo(null);
 		
 		pnlCrear = new JPanel(new GridLayout(2, 2));
@@ -39,6 +41,16 @@ public class DialogoAgregarAutor extends JDialog{
 		pnlCrear.add(btnAgregar);
 		
 		add(pnlCrear);
+	}
+	
+	protected ImageIcon createImageIcon(String path) {
+		java.net.URL imgURL = getClass().getResource(path);
+		if (imgURL != null) {
+			return new ImageIcon(imgURL);
+		} else {
+			System.err.println("Couldn't find file" + path);
+			return null;
+		}
 	}
 
 }
