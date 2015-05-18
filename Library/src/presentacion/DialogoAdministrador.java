@@ -14,7 +14,8 @@ public class DialogoAdministrador extends JDialog{
 	public DialogoAdministrador(Ventana ventana,Controlador controlador) {
 		super(ventana);
 		setModal(true);
-		setSize(500, 500);
+		setSize(170, 85);
+		setResizable(false);
 		setTitle(ConstantesGUI.T_MENU_ITEM_ADMINISTRADOR);
 		setLocationRelativeTo(null);
 		barraHerramientasAdministrador = new BarraHerramientasAdministrador(controlador);
