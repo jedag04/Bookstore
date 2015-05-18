@@ -12,6 +12,8 @@ public class ConstantesGUI {
 	public static final String T_LB_ID = "Id";
 	public static final String T_TITULO_TABLA_LIBROS = "Lista de libros";
 	public static final String T_TITULO_TABLA_USUARIO = "Lista de usuarios";
+	public static final String I_ICONO_SALIR = "/images/exit.png";
+	public static final String I_ICONO_LOGO = "/images/logo.png";
 	
 	/**
 	 * Constantes barra menu

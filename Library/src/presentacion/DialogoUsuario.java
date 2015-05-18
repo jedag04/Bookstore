@@ -3,6 +3,7 @@ package presentacion;
 import java.awt.BorderLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -26,6 +27,7 @@ public class DialogoUsuario extends JDialog{
 		setModal(true);
 		setResizable(false);
 		setSize(ConstantesGUI.VENTANA_USUARIO_ANCHO, ConstantesGUI.VENTANA_USUARIO_ALTO);
+		setIconImage(createImageIcon(ConstantesGUI.I_ICONO_USUARIO).getImage());
 		setTitle(ConstantesGUI.T_MENU_ITEM_USUARIO);
 		setLocationRelativeTo(null);
 		
@@ -51,5 +53,15 @@ public class DialogoUsuario extends JDialog{
 				ConstantesGUI.T_LB_TITULO, ConstantesGUI.T_LB_AUTOR, ConstantesGUI.T_LB_DESCRIPCION, ConstantesGUI.T_LB_VALOR},0);
 		tablaLibro = new JTable(modeloLibro);
 		pnlLibros.add(new JScrollPane(tablaLibro));
+	}
+	
+	protected ImageIcon createImageIcon(String path) {
+		java.net.URL imgURL = getClass().getResource(path);
+		if (imgURL != null) {
+			return new ImageIcon(imgURL);
+		} else {
+			System.err.println("Couldn't find file" + path);
+			return null;
+		}
 	}
 }

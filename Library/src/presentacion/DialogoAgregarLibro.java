@@ -2,6 +2,7 @@ package presentacion;
 
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -32,6 +33,7 @@ public class DialogoAgregarLibro extends JDialog{
 		setModal(true);
 		setSize(ConstantesGUI.VENTANA_ADD_LIBRO_ANCHO, ConstantesGUI.VENTANA_ADD_LIBRO_ALTO);
 		setTitle(ConstantesGUI.T_BTN_AGREGAR_LIBRO);
+		setIconImage(createImageIcon(ConstantesGUI.I_ICONO_AGREGAR_LIBRO).getImage());
 		setLocationRelativeTo(null);
 		
 		pnlCrear = new JPanel(new GridLayout(6, 2));
@@ -65,4 +67,13 @@ public class DialogoAgregarLibro extends JDialog{
 		add(pnlCrear);
 	}
 
+	protected ImageIcon createImageIcon(String path) {
+		java.net.URL imgURL = getClass().getResource(path);
+		if (imgURL != null) {
+			return new ImageIcon(imgURL);
+		} else {
+			System.err.println("Couldn't find file" + path);
+			return null;
+		}
+	}
 }
