@@ -1,64 +1,59 @@
 package logica;
 
-import java.awt.Image;
+import java.util.ArrayList;
 
 public class GestorLibro {
-	private int id;
-	private String titulo;
-	private Autor autor;
-	private String descrripcion;
-	private double valor;
-	private final Image portada;
+	private final ArrayList<Libro> listaLibros;
 
-	public GestorLibro(int id, String titulo, Autor autor, String descrripcion,
-			double valor, Image portada) {
+	public GestorLibro(ArrayList<Libro> listaLibros) {
 		super();
-		this.id = id;
-		this.titulo = titulo;
-		this.autor = autor;
-		this.descrripcion = descrripcion;
-		this.valor = valor;
-		this.portada = portada;
+		this.listaLibros = listaLibros;
 	}
 
-	public int getId() {
-		return id;
+	public GestorLibro() {
+		listaLibros = new ArrayList<Libro>();
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void agregarLibro(int id, String titulo, Autor autor,
+			String descrripcion, double valor) {
+
+		listaLibros.add(new Libro(id, titulo, autor, descrripcion, valor));
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public void editarLibro(int id, String titulo, String autor,
+			String descrripcion, double valor) {
+		Libro libro = buscarLibro(id);
+
+		if (libro != null) {
+
+			libro.setId(id);
+			libro.setTitulo(titulo);
+		}
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void eliminarLibro(int id) {
+		Libro libro = buscarLibro(id);
+		if (libro != null) {
+			listaLibros.remove(libro);
+
+		}
 	}
 
-	public Autor getAutor() {
-		return autor;
+	public Libro buscarLibro(int id) {
+		for (Libro libro : listaLibros) {
+			if (libro.getId() == id) {
+				return libro;
+			}
+
+		}
+		return null;
 	}
 
-	public void setAutor(Autor autor) {
-		this.autor = autor;
-	}
+	public static Libro crearLibro(int id, String titulo, Autor autor,
+			String descrripcion, double valor) {
 
-	public String getDescrripcion() {
-		return descrripcion;
-	}
+		return new Libro(id, titulo, autor, descrripcion, valor);
 
-	public void setDescrripcion(String descrripcion) {
-		this.descrripcion = descrripcion;
-	}
-
-	public double getValor() {
-		return valor;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
 	}
 
 }
