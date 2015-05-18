@@ -2,6 +2,9 @@ package logica;
 
 import java.util.ArrayList;
 
+/**
+ * @author Wilber
+ */
 public class GestorAutor {
 	private final ArrayList<Autor> listAutors;
 

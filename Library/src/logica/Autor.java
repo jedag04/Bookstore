@@ -1,6 +1,9 @@
 package logica;
 
 public class Autor {
+	/**
+	 * @author Wilber
+	 */
 	private int id;
 	private String nombre;
 

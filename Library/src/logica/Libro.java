@@ -1,5 +1,8 @@
 package logica;
 
+/**
+ * @author Wilber
+ */
 
 public class Libro {
 	private int id;

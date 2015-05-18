@@ -2,6 +2,9 @@ package logica;
 
 import java.util.ArrayList;
 
+/**
+ * @author Wilber
+ */
 public class GestorLibro {
 	private final ArrayList<Libro> listaLibros;
 

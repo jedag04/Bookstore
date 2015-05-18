@@ -2,6 +2,9 @@ package logica;
 
 import java.util.ArrayList;
 
+/**
+ * @author Wilber
+ */
 public class GestorUsuario {
 
 	private final ArrayList<Usuario> listaUsuarios;
