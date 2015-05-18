@@ -17,6 +17,8 @@ public class BarraHerramientas extends JToolBar{
 
 	public BarraHerramientas(Controlador controlador) {
 		btnUsuario = new JButton(createImageIcon(ConstantesGUI.I_ICONO_USUARIO));
+		btnUsuario.addActionListener(controlador);
+		btnUsuario.setActionCommand(Controlador.A_ABRIR_USUARIO);
 		btnUsuario.setToolTipText(ConstantesGUI.T_MENU_ITEM_USUARIO);
 		
 		btnAdministrador = new JButton(createImageIcon(ConstantesGUI.I_ICONO_ADMINISTRADOR));

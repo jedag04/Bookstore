@@ -2,10 +2,12 @@ package presentacion;
 
 import java.awt.BorderLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.Controlador;
@@ -19,8 +21,9 @@ public class Ventana extends JFrame{
 	private JPanel panelUsuario;
 	private JPanel panelAutor;
 	private DefaultTableModel modeloLibros;
-	private JTable tablaLibros;	
-
+	protected JTable tablaLibros;	
+	private JTable tablaUsuarios;
+	private DefaultTableModel modeloUsuarios;
 
 	public Ventana(Controlador controlador) {
 		
@@ -38,6 +41,7 @@ public class Ventana extends JFrame{
 		
 		panelLibro = new JPanel();
 		tablaLibros();
+		panelLibro.add(new JScrollPane(tablaLibros));
 		add(panelLibro, BorderLayout.WEST);
 		
 //		panelAutor = new JPanel();
@@ -50,24 +54,25 @@ public class Ventana extends JFrame{
 	}
 	
 	public void tablaLibros(){
-		modeloLibros = new DefaultTableModel(new String[]{"id", "genero", 
-				"titulo", "autor", "descripcion", "valor"},0);
+		modeloLibros = new DefaultTableModel(new String[]{ConstantesGUI.T_LB_ID, ConstantesGUI.T_LB_GENERO, 
+				ConstantesGUI.T_LB_TITULO, ConstantesGUI.T_LB_AUTOR, ConstantesGUI.T_LB_DESCRIPCION, ConstantesGUI.T_LB_VALOR},0);
 		tablaLibros = new JTable(modeloLibros);
-		panelLibro.add(new JScrollPane(tablaLibros));
+		panelLibro.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(),
+                ConstantesGUI.T_TITULO_TABLA_LIBROS, TitledBorder.CENTER, TitledBorder.TOP));
 	}
 	
 	public void tablaUsuarios(){
-		modeloLibros = new DefaultTableModel(new String[]{"id", "nombre", 
-				"presupuesto"},0);
-		tablaLibros = new JTable(modeloLibros);
-		panelUsuario.add(new JScrollPane(tablaLibros));
+		modeloUsuarios = new DefaultTableModel(new String[]{ConstantesGUI.T_LB_ID, ConstantesGUI.T_LB_NOMBRE, 
+				ConstantesGUI.T_LB_PRESUPUESTO},0);
+		tablaUsuarios = new JTable(modeloUsuarios);
+		panelUsuario.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(),
+                ConstantesGUI.T_TITULO_TABLA_USUARIO, TitledBorder.CENTER, TitledBorder.TOP));
+		panelUsuario.add(new JScrollPane(tablaUsuarios));
 	}
 	
 	public void tablaAutor(){
-		modeloLibros = new DefaultTableModel(new String[]{"id", "nombre"},0);
+		modeloLibros = new DefaultTableModel(new String[]{ConstantesGUI.T_LB_ID, ConstantesGUI.T_LB_NOMBRE},0);
 		tablaLibros = new JTable(modeloLibros);
 		panelAutor.add(new JScrollPane(tablaLibros));
 	}
-	
-
 }

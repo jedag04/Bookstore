@@ -16,6 +16,8 @@ public class BarraHerramientasAdministrador extends JToolBar {
 
 	public BarraHerramientasAdministrador(Controlador controlador) {
 		btnAgregarAutor = new JButton(createImageIcon(ConstantesGUI.I_ICONO_AGREGAR_AUTOR));
+		btnAgregarAutor.addActionListener(controlador);
+		btnAgregarAutor.setActionCommand(Controlador.A_AGREGAR_AUTOR);
 		btnAgregarAutor.setToolTipText(ConstantesGUI.T_BTN_AGREGAR_AUTOR);
 		
 		btnAgregarLibro = new JButton(createImageIcon(ConstantesGUI.I_ICONO_AGREGAR_LIBRO));
@@ -24,6 +26,8 @@ public class BarraHerramientasAdministrador extends JToolBar {
 		btnAgregarLibro.setActionCommand(Controlador.A_AGREGAR_LIBRO);
 		
 		btnAgregarUsuario = new JButton(createImageIcon(ConstantesGUI.I_ICONO_AGREGAR_USUARIO));
+		btnAgregarUsuario.addActionListener(controlador);
+		btnAgregarUsuario.setActionCommand(Controlador.A_AGREGAR_USUARIO);
 		btnAgregarUsuario.setToolTipText(ConstantesGUI.T_BTN_AGREGAR_USUARIO);
 		
 		add(btnAgregarAutor);
