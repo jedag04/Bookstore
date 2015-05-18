@@ -30,24 +30,24 @@ public class DialogoAgregarLibro extends JDialog{
 	public DialogoAgregarLibro(Ventana ventana,Controlador controlador) {
 		super(ventana);
 		setModal(true);
-		setSize(300, 300);
+		setSize(ConstantesGUI.VENTANA_ADD_LIBRO_ANCHO, ConstantesGUI.VENTANA_ADD_LIBRO_ALTO);
 		setTitle(ConstantesGUI.T_BTN_AGREGAR_LIBRO);
 		setLocationRelativeTo(null);
 		
 		pnlCrear = new JPanel(new GridLayout(6, 2));
-		lbGenero = new JLabel("Genero"); //Constantes
+		lbGenero = new JLabel(ConstantesGUI.T_LB_GENERO);
 		txtGenero = new JTextField();
-		lbTitulo = new JLabel("Titulo"); //Constantes
+		lbTitulo = new JLabel(ConstantesGUI.T_LB_TITULO);
 		txtTitulo = new JTextField();
-		lbAutor = new JLabel("Autor"); //Constantes
+		lbAutor = new JLabel(ConstantesGUI.T_LB_AUTOR);
 		txtAutor = new JTextField();
-		lbDescripcion= new JLabel("Descripcion");  //Constantes
+		lbDescripcion= new JLabel(ConstantesGUI.T_LB_DESCRIPCION);
 		txtDescripcion = new JTextField();
-		lbValor = new JLabel("Valor"); //Constantes
+		lbValor = new JLabel(ConstantesGUI.T_LB_VALOR);
 		txtValor = new JTextField();
 		
-		btnCancelar = new JButton("Cancelar");  //Constantes
-		btnAgregar = new JButton("Agregar");  //Constantes
+		btnCancelar = new JButton(ConstantesGUI.T_BTN_CANCELAR);
+		btnAgregar = new JButton(ConstantesGUI.T_BTN_AGREGAR);
 		
 		pnlCrear.add(lbGenero);
 		pnlCrear.add(txtGenero);

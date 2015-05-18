@@ -22,6 +22,8 @@ public class BarraMenu extends JMenuBar{
 		
 		menuArchivo.addSeparator();
 		jItemUsuario = new JMenuItem(ConstantesGUI.T_MENU_ITEM_USUARIO);
+		jItemUsuario.addActionListener(controlador);
+		jItemUsuario.setActionCommand(Controlador.A_ABRIR_USUARIO);
 		menuArchivo.add(jItemUsuario);
 		
 		jItemAdministrador = new JMenuItem(ConstantesGUI.T_MENU_ITEM_ADMINISTRADOR);
