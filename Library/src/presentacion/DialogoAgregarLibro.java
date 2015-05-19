@@ -52,6 +52,8 @@ public class DialogoAgregarLibro extends JDialog{
 		
 		btnCancelar = new JButton(ConstantesGUI.T_BTN_CANCELAR);
 		btnAgregar = new JButton(ConstantesGUI.T_BTN_AGREGAR);
+		btnAgregar.addActionListener(controlador);
+		btnAgregar.setActionCommand(Controlador.A_BTN_AGREGAR_LIBRO);
 		
 		pnlCrear.add(lbGenero);
 		pnlCrear.add(txtGenero);
@@ -71,7 +73,7 @@ public class DialogoAgregarLibro extends JDialog{
 	
 	public Libro crearLibro(){
 		this.dispose();
-		return GestorLibro.crearLibro(1, txtTitulo.getText(), txtAutor.getText(), txtDescripcion.getText(), txtValor.getText());
+		return GestorLibro.crearLibro( txtTitulo.getText(), txtAutor.getText(), txtDescripcion.getText(), txtValor.getText());
 	}
 
 	protected ImageIcon createImageIcon(String path) {

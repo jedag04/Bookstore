@@ -22,10 +22,9 @@ public class GestorLibro implements Serializable {
 		listaLibros = new ArrayList<Libro>();
 	}
 
-	public void agregarLibro(String titulo, String autor,
-			String descrripcion, double valor) {
+	public void agregarLibro(Libro nuevoLibro) {
 
-		listaLibros.add(new Libro(titulo, autor, descrripcion, valor));
+		listaLibros.add(nuevoLibro);
 	}
 
 	public void editarLibro(int id, String titulo, String autor,
