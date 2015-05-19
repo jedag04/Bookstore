@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import logica.GestorLibro;
+import logica.Libro;
 import controlador.Controlador;
 
 public class DialogoAgregarLibro extends JDialog{
@@ -50,6 +52,8 @@ public class DialogoAgregarLibro extends JDialog{
 		
 		btnCancelar = new JButton(ConstantesGUI.T_BTN_CANCELAR);
 		btnAgregar = new JButton(ConstantesGUI.T_BTN_AGREGAR);
+		btnAgregar.addActionListener(controlador);
+		btnAgregar.setActionCommand(Controlador.A_BTN_AGREGAR_LIBRO);
 		
 		pnlCrear.add(lbGenero);
 		pnlCrear.add(txtGenero);
@@ -65,6 +69,11 @@ public class DialogoAgregarLibro extends JDialog{
 		pnlCrear.add(btnAgregar);
 		
 		add(pnlCrear);
+	}
+	
+	public Libro crearLibro(){
+		this.dispose();
+		return GestorLibro.crearLibro( txtTitulo.getText(), txtAutor.getText(), txtDescripcion.getText(), txtValor.getText());
 	}
 
 	protected ImageIcon createImageIcon(String path) {

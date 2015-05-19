@@ -22,10 +22,9 @@ public class GestorLibro implements Serializable {
 		listaLibros = new ArrayList<Libro>();
 	}
 
-	public void agregarLibro(int id, String titulo, Autor autor,
-			String descrripcion, double valor) {
+	public void agregarLibro(Libro nuevoLibro) {
 
-		listaLibros.add(new Libro(id, titulo, autor, descrripcion, valor));
+		listaLibros.add(nuevoLibro);
 	}
 
 	public void editarLibro(int id, String titulo, String autor,
@@ -57,11 +56,12 @@ public class GestorLibro implements Serializable {
 		return null;
 	}
 
-	public static Libro crearLibro(int id, String titulo, Autor autor,
-			String descrripcion, double valor) {
-
-		return new Libro(id, titulo, autor, descrripcion, valor);
-
+	public static Libro crearLibro(String titulo, String autor,
+			String descrripcion, String valor) {
+		if(Util.validarValor(valor)){
+		return new Libro(titulo, autor, descrripcion, Double.parseDouble(valor));
+		}
+		return null;
 	}
 
 }

@@ -11,6 +11,8 @@ import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
+import logica.Libro;
+import logica.Util;
 import controlador.Controlador;
 
 public class Ventana extends JFrame{
@@ -53,6 +55,10 @@ public class Ventana extends JFrame{
 		panelUsuario = new JPanel();
 		tablaUsuarios();
 		add(panelUsuario, BorderLayout.EAST);
+	}
+	
+	public void agregarLibroTabla(Libro libro){
+		modeloLibros.addRow(Util.sitioAVector(libro));
 	}
 	
 	public void tablaLibros(){
