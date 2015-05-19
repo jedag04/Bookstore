@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import logica.GestorLibro;
+import logica.Libro;
 import controlador.Controlador;
 
 public class DialogoAgregarLibro extends JDialog{
@@ -65,6 +67,11 @@ public class DialogoAgregarLibro extends JDialog{
 		pnlCrear.add(btnAgregar);
 		
 		add(pnlCrear);
+	}
+	
+	public Libro crearLibro(){
+		this.dispose();
+		return GestorLibro.crearLibro(1, txtTitulo.getText(), txtAutor.getText(), txtDescripcion.getText(), txtValor.getText());
 	}
 
 	protected ImageIcon createImageIcon(String path) {

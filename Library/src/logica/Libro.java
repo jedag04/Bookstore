@@ -7,11 +7,11 @@ package logica;
 public class Libro {
 	private int id;
 	private String titulo;
-	private Autor autor;
+	private String autor;
 	private String descrripcion;
 	private double valor;
 
-	public Libro(int id, String titulo, Autor autor, String descrripcion,
+	public Libro(String titulo, String autor, String descrripcion,
 			double valor) {
 		super();
 		this.id = id;
@@ -37,11 +37,11 @@ public class Libro {
 		this.titulo = titulo;
 	}
 
-	public Autor getAutor() {
+	public String getAutor() {
 		return autor;
 	}
 
-	public void setAutor(Autor autor) {
+	public void setAutor(String autor) {
 		this.autor = autor;
 	}
 
