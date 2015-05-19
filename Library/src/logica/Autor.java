@@ -1,6 +1,12 @@
 package logica;
 
-public class Autor {
+import java.io.Serializable;
+
+public class Autor implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * @author Wilber
 	 */

@@ -1,12 +1,17 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Wilber
  */
-public class GestorUsuario {
+public class GestorUsuario implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final ArrayList<Usuario> listaUsuarios;
 
 	public GestorUsuario(ArrayList<Usuario> listaUsuarios) {

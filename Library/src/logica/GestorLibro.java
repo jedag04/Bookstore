@@ -1,11 +1,16 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Wilber
  */
-public class GestorLibro {
+public class GestorLibro implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final ArrayList<Libro> listaLibros;
 
 	public GestorLibro(ArrayList<Libro> listaLibros) {

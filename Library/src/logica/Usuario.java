@@ -2,6 +2,9 @@ package logica;
 
 import java.util.ArrayList;
 
+/**
+ * @author Wilber
+ */
 public class Usuario {
 	private int id;
 	private String nombre;
