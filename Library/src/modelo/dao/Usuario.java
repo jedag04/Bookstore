@@ -1,4 +1,4 @@
-package logica;
+package modelo.dao;
 
 import java.util.ArrayList;
 
@@ -7,15 +7,20 @@ import java.util.ArrayList;
  */
 public class Usuario {
 	private int id;
+	private static int idusuario;
 	private String nombre;
 	private double presupuesto;
+	private static int consecutivo;
 	private ArrayList<Libro> listaLibros;
 
-	public Usuario(int id, String nombre, double presupuesto) {
+	public Usuario(String nombre, double presupuesto) {
 		super();
-		this.id = id;
+		this.id = idusuario;
+		idusuario++;
+		this.id = consecutivo;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
+		consecutivo++;
 	}
 
 	public int getId() {
@@ -40,6 +45,11 @@ public class Usuario {
 
 	public void setPresupuesto(double presupuesto) {
 		this.presupuesto = presupuesto;
+	}
+	@Override
+	public String toString() {
+
+		return nombre + ":" + "\npresupesto :" + presupuesto;
 	}
 
 }

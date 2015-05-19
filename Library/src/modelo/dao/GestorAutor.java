@@ -1,4 +1,4 @@
-package logica;
+package modelo.dao;
 
 import java.util.ArrayList;
 

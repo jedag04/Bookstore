@@ -1,4 +1,4 @@
-package logica;
+package modelo.dao;
 
 public enum Genero {
 	

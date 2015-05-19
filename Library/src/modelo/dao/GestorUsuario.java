@@ -1,7 +1,9 @@
-package logica;
+package modelo.dao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import modelo.util.Util;
 
 /**
  * @author Wilber
@@ -23,9 +25,9 @@ public class GestorUsuario implements Serializable {
 		listaUsuarios = new ArrayList<Usuario>();
 	}
 
-	public void agregarUsuario(int id, String nombre) {
+	public void agregarUsuario(String nombre, double presupuesto) {
 
-		listaUsuarios.add(new Usuario(id, nombre, 23));
+		listaUsuarios.add(new Usuario(nombre, presupuesto));
 	}
 
 	public void editarUsuario(int id, String nombre) {
@@ -56,10 +58,11 @@ public class GestorUsuario implements Serializable {
 		return null;
 	}
 
-	public static Usuario crearUsuario(int id, String nombre, double presupuesto) {
-
-		return new Usuario(id, nombre, presupuesto);
+	public static Usuario crearUsuario(String nombre, String presupuesto) {
+		if (Util.validarValor(presupuesto)) {
+			return new Usuario(nombre, Double.parseDouble(presupuesto));
+		}
+		return null;
 
 	}
-
 }
