@@ -9,46 +9,59 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import modelo.dao.GestorUsuario;
+import modelo.dao.Usuario;
 import controlador.Controlador;
 
-public class DialogoAgregarUsuario extends JDialog{
+public class DialogoAgregarUsuario extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel pnlCrear;
-	private JLabel lbNombre;
-	private JLabel lbPresupuesto;
-	private JTextField txtNombre;
-	private JTextField txtPresupuesto;
-	private JButton btnCancelar;
-	private JButton btnAgregar;
-	
-	public DialogoAgregarUsuario(Ventana ventana,Controlador controlador) {
+	private final JPanel pnlCrear;
+	private final JLabel lbNombre;
+	private final JLabel lbPresupuesto;
+	private final JTextField txtNombre;
+	private final JTextField txtPresupuesto;
+	private final JButton btnCancelar;
+	private final JButton btnAgregar;
+
+	public DialogoAgregarUsuario(Ventana ventana, Controlador controlador) {
 		super(ventana);
 		setModal(true);
-		setSize(ConstantesGUI.VENTANA_ADD_USER_ANCHO, ConstantesGUI.VENTANA_ADD_USER_ALTO);
-		setIconImage(createImageIcon(ConstantesGUI.I_ICONO_AGREGAR_USUARIO).getImage());
+		setSize(ConstantesGUI.VENTANA_ADD_USER_ANCHO,
+				ConstantesGUI.VENTANA_ADD_USER_ALTO);
+		setIconImage(createImageIcon(ConstantesGUI.I_ICONO_AGREGAR_USUARIO)
+				.getImage());
 		setTitle(ConstantesGUI.T_BTN_AGREGAR_USUARIO);
 		setLocationRelativeTo(null);
-		
+
 		pnlCrear = new JPanel(new GridLayout(3, 2));
 		lbNombre = new JLabel(ConstantesGUI.T_LB_NOMBRE);
 		txtNombre = new JTextField();
 		lbPresupuesto = new JLabel(ConstantesGUI.T_LB_PRESUPUESTO);
 		txtPresupuesto = new JTextField();
-		
+
 		btnCancelar = new JButton(ConstantesGUI.T_BTN_CANCELAR);
+
 		btnAgregar = new JButton(ConstantesGUI.T_BTN_AGREGAR);
-		
+		btnAgregar.addActionListener(controlador);
+		btnAgregar.setActionCommand(Controlador.A_BTN_AGREGAR_USUARIO);
+
 		pnlCrear.add(lbNombre);
 		pnlCrear.add(txtNombre);
 		pnlCrear.add(lbPresupuesto);
 		pnlCrear.add(txtPresupuesto);
 		pnlCrear.add(btnCancelar);
 		pnlCrear.add(btnAgregar);
-		
+
 		add(pnlCrear);
 	}
-	
+
+	public Usuario crearUsuario() {
+
+		return GestorUsuario.crearUsuario(txtNombre.getText(),
+				txtPresupuesto.getText());
+	}
+
 	protected ImageIcon createImageIcon(String path) {
 		java.net.URL imgURL = getClass().getResource(path);
 		if (imgURL != null) {

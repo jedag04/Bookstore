@@ -25,9 +25,9 @@ public class GestorUsuario implements Serializable {
 		listaUsuarios = new ArrayList<Usuario>();
 	}
 
-	public void agregarUsuario(String nombre, double presupuesto) {
+	public void agregarUsuario(Usuario nuevoUsuario) {
 
-		listaUsuarios.add(new Usuario(nombre, presupuesto));
+		listaUsuarios.add(nuevoUsuario);
 	}
 
 	public void editarUsuario(int id, String nombre) {

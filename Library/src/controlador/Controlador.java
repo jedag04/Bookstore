@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import logica.GestorLibro;
 import logica.Libro;
+import modelo.dao.GestorUsuario;
+import modelo.dao.Usuario;
 import presentacion.DialogoAdministrador;
 import presentacion.DialogoAgregarAutor;
 import presentacion.DialogoAgregarLibro;
@@ -20,13 +22,15 @@ public class Controlador implements ActionListener {
 	public static final String A_AGREGAR_USUARIO = "AGREGAR_USUARIO";
 	public static final String A_AGREGAR_AUTOR = "AGREGAR_AUTOR";
 	public static final String A_BTN_AGREGAR_LIBRO = "BTN_AGREGAR_LIBRO";
-	private Ventana ventana;
-	private DialogoAdministrador dialogoAdministrador;
-	private DialogoUsuario dialogoUsuario;
-	private DialogoAgregarLibro dialogoAgregarLibro;
-	private DialogoAgregarUsuario dialogoAgregarUsuario;
-	private DialogoAgregarAutor dialogoAgregarAutor;
+	public static final String A_BTN_AGREGAR_USUARIO = "BTN_AGREGAR_USUARIO";
+	private final Ventana ventana;
+	private final DialogoAdministrador dialogoAdministrador;
+	private final DialogoUsuario dialogoUsuario;
+	private final DialogoAgregarLibro dialogoAgregarLibro;
+	private final DialogoAgregarUsuario dialogoAgregarUsuario;
+	private final DialogoAgregarAutor dialogoAgregarAutor;
 	private GestorLibro gestorLibro;
+	private GestorUsuario gestorUsuario;
 
 	public Controlador() {
 		ventana = new Ventana(this);
@@ -61,23 +65,35 @@ public class Controlador implements ActionListener {
 		case A_AGREGAR_AUTOR:
 			dialogoAgregarAutor.setVisible(true);
 			break;
-			
+		case A_BTN_AGREGAR_USUARIO:
+			ventana.setFocusable(true);
+			agregarUsuario();
+			break;
 		case A_BTN_AGREGAR_LIBRO:
 			agregarLibro();
 			ventana.setFocusable(true);
-			break;
+
 		default:
 			break;
 		}
 	}
-	
-	private void agregar(Libro l){
+
+	public void agregarUsuario() {
+		Usuario s = dialogoAgregarUsuario.crearUsuario();
+		if (s != null) {
+			ventana.agregarUsuarioTabla(s);
+			gestorUsuario.agregarUsuario(s);
+
+		}
+	}
+
+	private void agregar(Libro l) {
 		if (l != null) {
 			gestorLibro.agregarLibro(l);
 			ventana.agregarLibroTabla(l);
 		}
 	}
-	
+
 	public void agregarLibro() {
 		Libro l = dialogoAgregarLibro.crearLibro();
 		agregar(l);
