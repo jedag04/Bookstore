@@ -17,8 +17,6 @@ public class BarraMenu extends JMenuBar {
 	private final JMenu menuAyuda;
 	private final JMenuItem jItemAcercaDe;
 
-	private final JMenuItem JitemCrearUsuario;
-
 	public BarraMenu(Controlador controlador) {
 
 		menuArchivo = new JMenu(ConstantesGUI.T_MENU_ARCHIVO);
@@ -29,13 +27,6 @@ public class BarraMenu extends JMenuBar {
 		jItemUsuario.addActionListener(controlador);
 		jItemUsuario.setActionCommand(Controlador.A_ABRIR_USUARIO);
 		menuArchivo.add(jItemUsuario);
-
-		menuArchivo.addSeparator();
-		JitemCrearUsuario = new JMenuItem(ConstantesGUI.T_MENU_CREAR_USUARIO,
-				createImageIcon(ConstantesGUI.I_ICONO_USUARIO));
-		JitemCrearUsuario.addActionListener(controlador);
-		JitemCrearUsuario.setActionCommand(Controlador.A_AGREGAR_USUARIO);
-		menuArchivo.add(JitemCrearUsuario);
 
 		jItemAdministrador = new JMenuItem(
 				ConstantesGUI.T_MENU_ITEM_ADMINISTRADOR,
